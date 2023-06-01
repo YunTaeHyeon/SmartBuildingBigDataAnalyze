@@ -10,7 +10,6 @@ def pre_df(df):
     label = df['Àç½ÇÀÎ¿ø']
     df = df.drop('Àç½ÇÀÎ¿ø', axis=1)
     df = df.drop('regdate', axis=1)
-    df = df.drop('PIR', axis=1)
     df_33 = df.values.reshape(-1,3,3)
     return df_33, label
 #0~255 스케일링 함수
