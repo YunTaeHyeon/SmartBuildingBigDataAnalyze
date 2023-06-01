@@ -35,7 +35,7 @@ def make_28(df_33):
         expanded_data[idx] = expanded_arr
     return expanded_data
 
-df = pd.read_csv("train_data.csv", encoding='ISO-8859-1')
+df = pd.read_csv("modified_train_data.csv", encoding='ISO-8859-1')
 df_33, label = pre_df(df)
 #스케일링 함수 전체 적용
 for i in range(3):
