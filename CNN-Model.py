@@ -7,8 +7,8 @@ import torch.optim as optim
 
 def pre_df(df):
     df = df.dropna()
-    label = df['Àç½ÇÀÎ¿ø']
-    df = df.drop('Àç½ÇÀÎ¿ø', axis=1)
+    label = df['person']
+    df = df.drop('person', axis=1)
     df = df.drop('regdate', axis=1)
     df_33 = df.values.reshape(-1,3,3)
     return df_33, label
