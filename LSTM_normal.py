@@ -108,6 +108,15 @@ for epoch in range(num_epochs):
         best_accuracy = accuracy
         best_epoch = epoch + 1
         best_timing_loss = loss.item()
+        model_path = 'model_LSTM.pt'
+        torch.save({
+            'best_accuracy': best_accuracy,
+            'best_epoch': best_epoch,
+            'best_timing_loss': best_timing_loss,
+            'model_state_dict': model.state_dict()
+        }, model_path)
+
+        print("Model saved to", model_path)
     elif epoch - best_epoch >= patience:
         print('Early Stopping at Epoch [{}/{}]'.format(epoch + 1, num_epochs))
         print(best_accuracy)
