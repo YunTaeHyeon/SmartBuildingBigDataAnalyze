@@ -15,7 +15,7 @@ df = df.rename(columns={'Àç½ÇÀÎ¿ø': 'person'})
 new_df = pd.DataFrame()
 
 # 각 열에 대해 전 행과의 차이 계산하여 새로운 열 생성
-for column in df.columns[1:4]:
+for column in df.columns['co2']:
     # 첫 번째 행은 NaN으로 처리
     new_df[column + '_dipp'] = [None] + list(df[column].diff()[1:])
 
