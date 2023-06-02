@@ -5,6 +5,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import torch.optim as optim
 import torch.nn.functional as F
+import h5py
+
 
 def pre_df(df):
     df = df.dropna()
@@ -117,3 +119,13 @@ for epoch in range(num_epochs):
         print('Early Stopping at Epoch [{}/{}]'.format(epoch + 1, num_epochs))
         print(best_accuracy)
         break
+# Early Stopping을 적용한 후, 학습된 모델 저장
+model_path = 'model.pt'
+torch.save({
+    'best_accuracy': best_accuracy,
+    'best_epoch': best_epoch,
+    'best_timing_loss': best_timing_loss,
+    'model_state_dict': model.state_dict()
+}, model_path)
+
+print("Model saved to", model_path)
